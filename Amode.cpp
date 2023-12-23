@@ -50,3 +50,7 @@ int loadRFData(float **RFData, const char *fileName, int numElement, int numSamp
     }
     return 0;
 }
+
+// input: numPixel
+// operation: Create an array containing the depth location (in z-direction) for each pixel on the scanline
+// return: scanlineLocations -> scanlinePosition[]
