@@ -54,3 +54,28 @@ int loadRFData(float **RFData, const char *fileName, int numElement, int numSamp
 // input: numPixel
 // operation: Create an array containing the depth location (in z-direction) for each pixel on the scanline
 // return: scanlineLocations -> scanlinePosition[]
+float *genScanlineLocation(int &numPixel)
+{
+    float depth;
+    float depth_value = 0; // has the value of elements in the array (start at 0m)
+
+    // Prompt the user for how deep the scanline would be
+    cout << "How deep is the scanline? ";
+    cin >> depth;
+    cout << "Num Pixel: ";
+    cin >> numPixel;
+
+    float spacing = depth/(numPixel-1); // spacing of depth based on numPixels
+
+    // Array contains scanline location based on desired depth (z-direction)
+    float* scanlineLocations = new float[numPixel];
+
+    // Load scanlineLocation[n] array
+    for (int i = 0; i < numPixel; i ++ ){
+        scanlineLocations[i] = depth_value;
+
+        // update depth value so it adds spacing to the next iteration
+        depth_value += spacing;
+    }
+    return scanlineLocations;
+}
