@@ -35,5 +35,9 @@ int main () {
         cerr << "Cannot load from imagRFData.txt, exiting program" << endl;
         return -2;
     }
-
+    
+    
+    // Create imaging location array - scanlinePosition
+    int numPixel = 256;
+    float *scanlinePosition = genScanlineLocation(numPixel);
 }
