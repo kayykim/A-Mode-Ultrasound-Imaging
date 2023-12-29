@@ -79,3 +79,18 @@ float *genScanlineLocation(int &numPixel)
     }
     return scanlineLocations;
 }
+
+// input: numElement
+// operation: Create an array containing the element location (in x-direction) of the ultrasound transducer
+// returns: eleLocation -> elementPosition[]
+float *genElementLocation(int numElement, float PITCH)
+{
+    // Array contains the element location (x-direction)
+    float* eleLocation = new float[numElement];
+
+    // Load eleLocation[n] array
+    for (int n = 0; n <= numElement-1; n ++) {
+        eleLocation[n] = (n - ((float)numElement-1)/2) * PITCH;
+    }
+    return eleLocation;
+}
