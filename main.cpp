@@ -40,4 +40,8 @@ int main () {
     // Create imaging location array - scanlinePosition
     int numPixel = 256;
     float *scanlinePosition = genScanlineLocation(numPixel);
+
+    // Create element locations - elementPosition
+    float* elementPosition; 
+    elementPosition = genElementLocation(N,PITCH);
 }
