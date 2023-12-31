@@ -94,3 +94,19 @@ float *genElementLocation(int numElement, float PITCH)
     }
     return eleLocation;
 }
+
+// input: all inputs nesscary for calculations
+// operation: Beamform the A-mode scanline
+// return: void
+void beamform(float *scanline, float **realRFData, float **imagRFData, float *scanlinePosition, float *elementPosition, int numElement, int numSample, int numPixel, float FS, float SoS)
+{   
+    // Repeat for each scanline location first
+    for (int i = 0; i < numPixel; i++) {
+        // tforward: time it takes for transducer to transmit signals
+        float tforward = scanlinePosition[i] / SoS;
+    
+        // set p_real, p_imag to 0
+        float p_real = 0.0 ; // accumulation of all real
+        float p_imag = 0.0; // accumulation of all imag 
+    }
+}
