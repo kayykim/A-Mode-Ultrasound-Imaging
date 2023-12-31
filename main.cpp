@@ -36,7 +36,6 @@ int main () {
         return -2;
     }
     
-    
     // Create imaging location array - scanlinePosition
     int numPixel = 256;
     float *scanlinePosition = genScanlineLocation(numPixel);
@@ -44,4 +43,9 @@ int main () {
     // Create element locations - elementPosition
     float* elementPosition; 
     elementPosition = genElementLocation(N,PITCH);
+
+    // Perform A-mode beamforming - scanline
+    float *scanline;
+    scanline = createScanline(numPixel);
+    beamform(scanline, realRFData, imagRFData, scanlinePosition, elementPosition, N, K, numPixel, FS, SOS);
 }
