@@ -108,5 +108,22 @@ void beamform(float *scanline, float **realRFData, float **imagRFData, float *sc
         // set p_real, p_imag to 0
         float p_real = 0.0 ; // accumulation of all real
         float p_imag = 0.0; // accumulation of all imag 
+
+        // Repeat for each element location next
+        for (int k = 0; k < numElement; k++) {
+            // tbackward: time it takes for signal to be recieved to transducer
+            float tbackward = sqrt (pow(scanlinePosition[i], 2) + pow(elementPosition[k], 2))/SoS;
+            // ttotal: total time of signal transmitting and recieving
+            float ttotal = tforward + tbackward;
+            // sample: ????
+            int sample = floor(ttotal * FS);
+
+            // Accumulate data from text file in kth and sample position of text files
+            p_real += realRFData[k][sample];
+            p_imag += imagRFData[k][sample];
+        }
+        // calculate scanline (result)
+     scanline[i] = sqrt(pow (p_real, 2) + pow (p_imag, 2));
+        
     }
 }
