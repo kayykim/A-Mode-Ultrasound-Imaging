@@ -52,3 +52,10 @@ int main () {
    // Output data into a .csv file
         // Note: Make sure to seperate columns with commas and
         // use endl to separate the rows.
+    result = outputScanline("output.csv", scanlinePosition, scanline, numPixel);
+    
+        // if error writing into another file, return an error message
+    if (result == -1) {
+        cerr << "Cannot write scanline to output.csv, exiting program" << endl;
+        return -3;
+    }
