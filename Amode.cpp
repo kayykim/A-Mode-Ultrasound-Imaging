@@ -127,3 +127,7 @@ void beamform(float *scanline, float **realRFData, float **imagRFData, float *sc
         
     }
 }
+
+// input: file, scanlinePosition, scanline, numPixel
+// operation: Write the scanline to a csv file
+// return: if opened properly (0), error (-1)
