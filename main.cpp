@@ -49,3 +49,6 @@ int main () {
     scanline = createScanline(numPixel);
     beamform(scanline, realRFData, imagRFData, scanlinePosition, elementPosition, N, K, numPixel, FS, SOS);
 }
+   // Output data into a .csv file
+        // Note: Make sure to seperate columns with commas and
+        // use endl to separate the rows.
