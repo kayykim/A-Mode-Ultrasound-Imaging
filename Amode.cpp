@@ -131,3 +131,20 @@ void beamform(float *scanline, float **realRFData, float **imagRFData, float *sc
 // input: file, scanlinePosition, scanline, numPixel
 // operation: Write the scanline to a csv file
 // return: if opened properly (0), error (-1)
+int outputScanline(const char *fileName, float *scanlinePosition, float *scanline, int numPixel)
+{
+    // Open file
+    ofstream outputFile;
+    outputFile.open(fileName);
+    
+    // Check if file can be opened
+    if (outputFile.fail()){
+        return -1;
+    }
+    // Iterate through numPixel (128) times
+    for (int i = 0; i < numPixel; i++) {
+        outputFile << scanlinePosition[i] << "," << scanline[i] << endl;
+    }
+    return 0 ;
+}
+
