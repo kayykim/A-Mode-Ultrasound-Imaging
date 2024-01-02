@@ -148,3 +148,7 @@ int outputScanline(const char *fileName, float *scanlinePosition, float *scanlin
     return 0 ;
 }
 
+// input: all arrays and elements with a dynamical memory allocatino
+// operation: destroy all arrays
+// return: void
+
