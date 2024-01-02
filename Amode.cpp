@@ -152,3 +152,14 @@ int outputScanline(const char *fileName, float *scanlinePosition, float *scanlin
 // operation: destroy all arrays
 // return: void
 
+void destroyAllArrays(float *scanline, float **realRFData, float **imagRFData, float *scanlinePosition, float *elementPosition, int numElement, int numSample, int numPixel)
+{
+    delete [] scanline;
+    delete [] scanlinePosition;
+    delete [] elementPosition;
+    for (int i = 0; i < numElement; i++) {
+        delete realRFData[i];
+        delete imagRFData[i];
+    }
+    //should destroy numElement, numSample, numPixel
+}
