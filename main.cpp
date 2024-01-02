@@ -48,7 +48,7 @@ int main () {
     float *scanline;
     scanline = createScanline(numPixel);
     beamform(scanline, realRFData, imagRFData, scanlinePosition, elementPosition, N, K, numPixel, FS, SOS);
-}
+
    // Output data into a .csv file
         // Note: Make sure to seperate columns with commas and
         // use endl to separate the rows.
@@ -59,3 +59,8 @@ int main () {
         cerr << "Cannot write scanline to output.csv, exiting program" << endl;
         return -3;
     }
+    // Clean out memory space by deleting all deallocated memory spaces
+    destroyAllArrays(scanline, realRFData, imagRFData, scanlinePosition, elementPosition, N, K, numPixel);
+
+    return 0;
+}
